@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html id="mainhtml">
 <head>
 <meta charset="ISO-8859-1">
 <title>DOM</title>
+<script src="index.js"></script>
 </head>
 <body>
   
@@ -10,26 +11,22 @@
     <div>
       <h3>Sum: <span id="sum"></span></h3>
       <h5 id="currentTime"></h5>
+
     </div>
-    <div>
+    <div name="parent">
       <h1>United <span data-customAttr="USA">States</span> of America (<span>USA</span>)</h1>
       <div><a>Click Here</a><a>Click Here</a><a>Click Here</a><a>Click Here</a><a>Click Here</a></div>
       <a>Click Here</a>
       <a>Click <span>Here1</span></a>
       <a>Click Here</a>
       <script>
-        function getUSA(){
-          let usa = document.getElementsByTagName("span");
-          for(let i = 0; i<usa.length; i++){
-            if(usa[i].textContent == "USA"){
-              console.log(usa[i]);
-            }
-          }
-        }
-        getUSA(); 
+        //getUSA();         
+      </script>
+      <script>
+        //getAnchorChildren();
       </script>
     <div>
-	  <select name="colors">
+	  <select onchange="colorsEvent()" name="colors">
 	    <option value="green">Green</option>
 	    <option value="blue">Blue</option>
 	    <option value="red" selected="selected">Red</option>
@@ -38,48 +35,40 @@
 	  </select>
       </div>
     </div>
-    <p id="helloWorld">Hello, World!</p>
+    <p id="helloWorld" onclick="randomColor(event)">Hello, World!</p>
     <div>
       <table id="mytable">
         <tr>
           <th>Name</th>
           <th>Department</th>
         </tr>
-        <tr>
+        <tr onmouseover="peekAboo(event)">
           <td class="empName">John</td>
           <td>Sales</td>
         </tr>
-        <tr>
+        <tr onmouseover="peekAboo(event)">
           <td class="empName">Amy</td>
           <td>Finance</td>
         </tr>
-        <tr>
+        <tr onmouseover="peekAboo(event)">
           <td class="empName">Austin</td>
           <td>Sales</td>
         </tr>
-        <tr>
+        <tr onmouseover="peekAboo(event)">
           <td class="empName">Katie</td>
           <td>Marketing</td>
         </tr>
-        <tr>
+        <tr onmouseover="peekAboo(event)">
           <td class="empName" data-customAttr="court">Courtney</td>
           <td>Sales</td>
         </tr>
-        <tr>
+        <tr onmouseover="peekAboo(event)" >
           <td class="empName">Scout</td>
           <td>Sales</td>
         </tr>
       </table>
       <script>
-      function getPeopleInSales(){
-        let mytable = document.getElementById("mytable");
-        let myrows = mytable.getElementsByTagName("tr");
-        console.log(myrows.length);
-        for(let i = 1; i< myrows.length; i++){
-          console.log(myrows[i]);
-        }
-      }
-      getPeopleInSales();
+      //getPeopleInSales();
       </script>
     </div>
     <form id="firstForm">
@@ -88,7 +77,7 @@
 	  <input type="text" data-customAttr="24"/><br/>
 	  <input type="radio" name="favoriteAnimal" value="dog"/>Dog<br/>
 	  <input type="radio" name="favoriteColor" value="blue"/>Blue<br/>
-	  <input id="num1" class="nums" type="text"/><br/>
+	  <input onchange="sumEvent()" id="num1" class="nums" value="1" type="text"/><br/>
 	  <input type="radio" name="favoriteAnimal" value="cat"/>Cat<br/>
 	  <input type="radio" name="favoriteColor" value="red"/>Red<br/>
 	  <input type="radio" name="favoriteAnimal" value="horse"/>Horse<br/>
@@ -103,22 +92,31 @@
 	    <option value="kayaking" selected="selected">Kayaking</option>
 	    <option value="hiking">Hiking</option>
 	    <option value="programming" selected="selected">Programming</option>
-	  </select>
-	  <input id="num2" class="nums" type="text"/>
-	  <select name="skills">
+    </select>
+    
+	  <input onchange="sumEvent()" id="num2" class="nums" type="text" value="1"/>
+	  <select onchange="skillsEvent()" name="skills">
 	    <option value="java">Java</option>
 	    <option value="net">.NET</option>
 	    <option value="dom" selected="selected">DOM</option>
 	    <option value="html">HTML</option>
 	    <option value="css">CSS</option>
 	    <option value="javascript" selected="selected">Javascript</option>
-	  </select>
+    </select>
     </form>
   </div>
+  <script>
+    //getHobbies();
+    </script>
   <a>Click Here</a>
   <a>Click <span data-customAttr="500">Here3</span></a>
   <a>Click Here</a>
 	  
   <script src="index.js"></script>  
+  <script>
+    //getCustomAttribute();
+    showTime();
+    walkTheDOM(document.getElementById("mainhtml"), readNode);
+  </script>
 </body>
 </html>
